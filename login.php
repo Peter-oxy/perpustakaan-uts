@@ -1,6 +1,13 @@
 <?php 
 session_start();
 require_once "config.php";
+
+if(isset($_SESSION['admin_logged_in'])) {
+    //ini artinya jika $_SESSION['admn_logged_in'] adalah true (kalau true maka sudah login)
+    //maka akan dilempar di index.php
+    header("Location: index.php");
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST['username'];
     $password = $_POST['password'];
